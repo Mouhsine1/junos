@@ -1,0 +1,43 @@
+                                                     >  XML  <
+
+
+<open-tag>  some text  </closed-tag> 
+<open-closed-tag/>
+==============================================
+<course xmlns="">         <-------- the root element -------> xmlns to provide a namespace to have one unique  name
+    <name>DevOps Automation</name>
+    <section>
+        <name>
+        </name>
+    </section>   
+</course>
+==============================================
+  ---- > XSD -xml schema definiton - : to define elements and the format of xml document .
+
+- every time you enter a cli command the cli command convert this command to xml form and send the request to to the mgd .
+
+show route-active-path | display xml  ===> in the xml format 
+
+- Document Node 
+- Element Node 
+- Attribute Node 
+ <open a=attribute node>     Element Node    </open>
+
+XPATH : ancestor , parent , sibling , child ...
+
+<configuration>
+    <version>
+    <system>
+        <root-authentication>
+            <encrypted-password>    ==========>      path:/configuration/system/root-authentication/encrypted-pasword 
+
+--- add criteria to the path : 
+ system/login/user[name=='lab']
+
+<wrapper>  
+<elemtent>                                      <wrapper name="bob">
+<name>          element/name          |          </wrapper>                       element/@names
+bob
+</name> 
+</element>                                         
+</wrapper>                                      

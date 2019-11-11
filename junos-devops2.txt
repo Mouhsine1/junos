@@ -1,0 +1,51 @@
+                               > Junos Stack <
+                                 ____________
+
+Python | Ansible | Salt | JSNAPy | Rupy | Puppet | Chef   |
+================================================================================
+JET app     | Python. PyEZ   | Ruby, RubyEZ | REST application
+===============================================================================
+gRPC | MQTT |    NETCONF     | REST API  | Python | CLI   |
+===============================================================================
+JET API     | YANG |                XML API               | snmp readonly
+==============================================================================
+jsd process |                 mgsd process                | snmpd process
+===============================================================================
+                                      Junos Kernel
+=========================================== ====================================
+     Routing Engine                        |         Packet forwarfing engine 
+===================================================================================
+
+
+Junos API :  NETCONF , REST API , JET
+
+- Junos XML API : used for on-box and off-box automation 
+                 - on-box scripts (for automaton and not orchestration) : commit , operational script , event script, snmp                    script .
+                 - off-box : 
+- NETCONF is used to acces XML API over network . <rpc> <get-software-inforamation></get-software-information></rpc> //rpc request
+- rpc : remote procedure call .
+- Junos use netconf for automation .
+- you can use netconf libraries using java , perl , ruby , python .
+- netconf library in python is PyEZ , and it is opensource .
+- NETCONF : permet d avoir un moyen pour la gestion des equipment reseaux
+=========================================================================================
+                     Ansible : 
+                         - agentless
+                         - minimal code
+  
+                    Puppet & Chef : require an agent 
+
+> the deamon responsible for XML API is : mgd 
+===========================================================================================
+REST API : Locate , manipulate , transfer data  by the API server .
+   - Is stateless .
+   - is secure and use https 
+   - to test it you could use curl 
+- rest api could be used like netconf .
+============================================================================================
+- JET : junos extension toolkit -jsd - C/C++ , python 
+============================================================================================
+- JSNAPy : to take snapshots and compare it 
+- Junos ZTP : provisiong of devices wit zero touch .
+
+  

@@ -1,0 +1,44 @@
+					      < Data Serialisation : JSON , YAML >
+
+
+
+
+- Data Structure : 				YAML (---)  				    JSON
+
+   String                                      Hostname                                   "Hostname"
+
+   Integer 	                                 5                                          5
+
+   Boolean                                      true                                        true
+
+   List                   sequence              - one                  array       ["one" , "three" , "two" ]
+ 					        - three
+	                                        - two
+
+   
+
+
+  Dictionnary             mapping             hostname: rtr1              object    { "hostname":"rtr1"
+					      location: london                      " location":"london"
+
+										     }
+ 
+  Comment                                         #                                        not possible
+
+
+
+- yaml is superset of json  : means that you can use the syntax of json .
+
+   --- YAML exampl : 
+
+
+   a_bool: true 
+
+   a_dict: 
+     val_1: 2                  <======== notice the indentation in dictionnary
+     val_3: 4   
+   a_list:
+   - 1
+   - 2                         <======= in list there is no indentation
+   - 3
+   - 4                     

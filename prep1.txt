@@ -1,0 +1,31 @@
+						<SDLC>
+
+
+- CI : code ---> version control ---> review ---> integrate 
+
+- CD : deliver ---> deploy 
+
+
+
+                			----------------- Flow ------------------------->
+                                    Dev =============continous improvement ============== Ops
+					<----------------- FeedBack--------------------
+
+- DevOps : try to increase the speed of the flow .
+
+
+- The key in DevOps : is automate 
+- speed / reliability/ cost
+
+- NRE :  network reliability engineering
+- SRE : site reliability engineering 
+
+- 3 principals protocols :  jsd , mgd , snmpd
+
+- process of automation on junos are : jsd , mgd 
+
+- jsd protocols :  ====> JET API -------->  gRPC , MQTT 
+
+- mgd protocols : ======> YANG , XML API ------>  netconf 
+
+- python / slax ====> on box 

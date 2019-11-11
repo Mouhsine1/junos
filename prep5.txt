@@ -1,0 +1,22 @@
+							<Python & PyEZ>
+
+
+- why ? : easy to read (white space) ; heavily used in devops ; large community 
+
+- interpreted language 
+
+- object orientated 
+
+ import time <====== this is a library =======> we use this style when we want to use multiple functions from this lib
+                                               in this case we should refer to the library every time we use a fct lib.fct
+
+ from time import set-time <====== this is a function we use this when we want to use only one function from this lib
+                                   here we could use the function without making lib.fct just type the name of the fct
+
+- everything in python is object 
+
+- function also is an object on python
+
+---> to see all methods and attributes associated with an object : 
+   
+      > print(dir(a))

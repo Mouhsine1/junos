@@ -1,0 +1,28 @@
+						REST API
+
+- REPRENTAIONAL STATE TRANSFER
+
+
+
+
+     REST client ------------------    lighthttpd
+					   |
+					   |
+				      mode juise 
+					   |
+					   |
+	mgd process		------>	 juise : juniper user interface script environnment
+
+- http port 3000
+
+- https port 3443
+
+- netconf request :  mgd process 
+
+- xml parameters are reference using : @   r e.g : @format=text
+
+- rpc parmeters are referenced using : ?   e.g : ?terse=
+
+- process for terminatig res api : jsd
+
+- the last process who can handle the request is : mgd

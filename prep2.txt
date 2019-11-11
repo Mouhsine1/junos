@@ -1,0 +1,35 @@
+							< XML & NETCONF >
+
+- netconf : network configuration protocol 
+
+- it provides an API : to get config , modify config , to get data 
+
+- default port 830/tcp
+
+                content : xml data
+             -------------------------------------------------
+		operations : get-config , commit-config
+                ------------------------------------------       
+		messages : rpc , rpc reply , notification
+                    -----------------------------------
+	        	transport : ssh , tls 
+
+
+- messages contain operations that coontain contents
+
+
+            <element> text content </element>
+	    <element attribute="value">
+
+- xpath : xml path 
+
+- to enter the config mode : type edit 
+
+- set system service netconf ssh
+
+
+> ssh ip_addr -p 830 -s netconf 
+
+- rpc closing :  ]]>]]>
+
+- ctrl +d : to stop the session

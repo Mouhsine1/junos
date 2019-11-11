@@ -1,0 +1,73 @@
+						     < PyEZ >
+- PyEZ is not a propriety juniper .
+- microframwaok enabling mgmt and automation.
+- PyEZ is also used by ansible s
+- supports  netconf 
+- uses junos 11.4 or higher
+- support telnet and console connections 
+- initiate netconf connection by using PyEZ
+- PyEZ to make taches automatically .
+  - automated configuration mgmt .
+=======================================================================================================================
+
+- apt install python-pip 
+- apt install python-dev
+- apt install libxml2-dev
+- apt install libxslt-dev 
+- apt install libssl-dev
+- apt install libffi-dev
+- pip install junos-eznc
+
+=======================================================================================================================
+- to enable netconf : set netconf ssh =====> default port 830
+=======================================================================================================================
+#!/bin/bash
+
+from jnpr.junos import Device 
+
+if __name__ == '__main__'
+
+dev = Device(host='192.168.1.6',user='lab', passwd='lab123')
+dev.open()
+print(dev.facts)
+dev.close()
+=======================
+#!/bin/bash 
+
+from jnpr.junos import Device 
+
+if __name == '__name__'
+
+with Device(host='192.168.1.6', user='lab', passwd='lab123') as dev: 
+  
+     print(dev.facts)
+
+========================================================================================================================
+
+- junos command on the cli are converted to rpc .
+
+from jnpr.junos import Device 
+from lxml import etree
+========================================================================================================================
+						The PyEZ 
+
+- directory utils contains : config , fs , scp , start-shell , sw
+
+1- lock : to lock the configuration 
+2- load , rollback , rescue 
+3- commit 
+4- unlock
+=======================================================================================================================
+
+						handling errors 
+
+
+- try/except/ finaly 
+- ConnectAuthError
+- ConnectTimeoutError 
+- ConnectError
+- ConfigLoadError
+======================================================================================================================
+
+show bgp summary | disply xml rpc
+- get-bgp-summary-information

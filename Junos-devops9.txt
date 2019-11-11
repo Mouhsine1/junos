@@ -1,0 +1,65 @@
+						< Rest API >
+
+. Os REST API
+. create REST API RPC queries 
+. use the REST API Explorer
+. REST : representaionl state transfer .
+  - to locate manipulate and transfer.
+  - uses HTTP(s)
+  - every query is independant 
+  - uses curl , postman for prototyping and debugging 
+. For REST in Python there is requests library 
+  
+      client  ----------------HTTP GET /rpc/get-system-information  ----------------->
+
+       <---------------- HTTP, response() ------------------------------------ Server API
+. support MX , M , T , PTX , and SRX 
+
+. http default port 3000
+. https default port 3443
+. set system services rest http 
+. set rest http port 3030
+. REST API works only with IP4
+
+- control the number of connection : set rest control ?
+
+----> REST API query format : 
+  
+    http ||https===>    protocol://device:port/rpc/procedure
+ procedure e.g: get-system-information ; get-interface-information
+
+curl -u "username:userpasswd" http://ip_addr/rpc/get-ineterface-information          <====== this is RESTfull query
+
+curl -u "username:userpasswd" http://ip_addr/rpc/get-ineterface-information@format=text?interface-name=ge-0/0/0&terse="
+											|
+									             rpc format
+
+curl -d :  uses by default POST method 
+========================================================================================================================
+ 
+							Troubleshooting 
+
+--> to trace the lighthttpd : 
+		set rest traceoptions flag lighthttpd
+--> to trace the Juise : 
+		set rest traceoptions flag juise
+--> to trace both of them : 
+		set rest traceoptions flag all 
+
+---> Log files : 
+
+	/var/chroot/rest-api/var/log/lighthttpd
+	/var/chroot/rest-api/var/log/lighthttpd
+=======================================================================================================================
+ cases where you can restrict the uses the REST API : 
+   - limiting IP address 
+   - limiting the number of concurrent connections
+======================================================================================================================
+- REST API explorer to test some queries 
+- to enable the REST API explorer: 
+   > set system services rest enable-explorer 
+   > commit 
+- REST API Explorer support three format which are: 
+    - xml 
+    - json 
+    - plain text 

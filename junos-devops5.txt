@@ -1,0 +1,53 @@
+							< JSON-YAML >
+- JSON : java script object notation .
+- YAML : YAML ain't markup language .
+
+- to format data there are multiple options
+   - xml 
+   - yaml 
+   - json
+
+- basic data type : string , numbers , boolean , Null value .
+- complex data type : list , dictionary 
+list = array (json) , yaml (sequence) 
+     ex : ["ge-0/0/1","ge-0/0/2"]
+
+dictionary : key-value , json(object) , pyhton(dictionnary) , yaml(mapping) , ruby(hash)
+             ex : { "mtu" : 1554
+                    "speed" : 1g 
+                    "traps" : true 
+                 }
+--- dictionnaire est different du tableau 
+
+================================== Uses cases ============
+
+- json : junos os config , junos os operation command , junos rest api 
+- yaml : junos PyEZ tables , ansible playbooks , JSNAPy
+================================================================
+=========================JSON basics ===========================
+- case sensitive 
+- uses curly braces and brackets []
+- white  space are not important 
+
+{
+  "interface" : "ge-0/0/0.0",      <-------- betwen key-pair
+  "address" : "192.168.0.0/24" 
+}
+
+> to display json format : show chasis alarms | display json 
+
+
+======================YAML basics ==============================
+- case sensitive 
+- spaces are important 
+- uses spaces not tabs
+- yaml doc start with ---
+- comment with #
+- yaml structures : mapping (key-value) , sequences (list , dictionary )  ====> on trouve une sequence dans une mapping
+
+- : to begin a sequence 
+: :  to begin a mapping 
+---
+- apple 
+- orange        <-------- une list  
+- banana

@@ -1,0 +1,158 @@
+[into to junos os]
+
+- routing engine 
+- forwarding engine 
+- traffic exception 
+
+# configuration mode 
+> operational mode 
+? to get help 
+command ? // to get help to use the command
+spacebar to complete
+tab to complete 
+
+ctrl+a : start
+ctrl+e : finisch 
+ctrl+w : cut the word
+ctrl+f : forward
+ctrl+b : backward
+
+#show route | ? : you can use pipe
+
+operationl mode : 
+to enter config mode : you should enter configure 
+- config mode or shared configuration .
+=====> configure exclusive : to exclude other users from edting the config
+=====> configure private : to allow usr to edit private copy of configuration 
+
+junos has a batch configuration : means must commit changes to apply changes by using command commit 
+junos configuration types or models : 
+  - active config : current config 
+  - condidate config : wokring copy becomes active upon commit 
+
+
+   |condidat config| <----------configure------------- | active 0 |
+   |condidat config| -----------commit---------------> | active 1 |  == rollback 1
+
+======> junos has 49  roolback
+
+# set service web-management http port 80
+# show services
+    http {
+       web-management{
+          port 80 ;
+       }
+
+    }
+================ moving betwen levels ============================
+# edit : command to move in the hierachy 
+#up
+#up 2 
+#top : to the top of the hierarchy 
+#exit
+==================================================================
+#show : to list services 
+# set ftp : to add a servive use set 
+# delete ftp
+#renmae interface .. 
+#replace pattern 
+#copy ...
+#deactivate interface ..
+#insert term 
+# annotate name-server "new name"
+# show | comapare   // - : deleted  ; + : added
+#show configuration |compare rollback num
+# compare file files file1 file2
+>>>>>>>>>>> commit check
+>>>>>>>>>>> commit confirmed
+>>>>>>>>>>> commit
+>>>>>>>>>>> commit at 10:00:05
+>>>>>>>>>>> commit and-quit
+>>>>>>>>>>> rollback 1
+======================================================================
+#run : to run commands of operational mode without leaving the config mode 
+===================initial config========================
+root authentication is the mandartory thing in the configuration .
+#request system halt
+#load default-factory
+#set system-rooot-authentication plain-text-password
+#cli  ===> to move to the operational mode
+# set system 
+# set hostname router
+# set root-authenticaton plain-text-authentication
+# set service ssh 
+# set time-zone Africa/casa
+# set interfaces interface-name unit 0 family inet address 10.0.0./24
+# commit and-quit
+=================interface types ============================
+- mgmt 
+- network 
+- iternal 
+- loopback
+- services 
+- logical unit is like a subinteface 
+=================properties===================================
+phys: MTU , data link layer protocol , duplex
+logical : family : inet , inet6 , mpls , bridge , iso 
+> show interfaces ge-0/0/2 teres
+=============================================================
+          software dev : in the old days 
+ requirments ===> design ======> code =====> test =====> deploy 
+ 
+         software devlopment : agile
+
+===============================manifesto : ==========
+   - stisfy costumer via ci/cd
+   - releases frquently 
+   - welcome changing  requi
+   - daily coperation between devlopers 
+   - self orginizing 
+==============================values=================
+    - individuals over processes
+    - working software over comprehensive doc
+    - costumer collaboration over contract conditions
+    - changes over following a formal plan 
+====================================================
+ they want to apply agile in the infrastructure and deployment also 
+- devops called also agile infrastructure 
+   - automation and orchestration 
+   - roll back easily if an error was detected
+
+plan ====> code =====> test ======> release ====> deploy ======> operate ====> monitor
+=======================problems solved by devops =======================================
+  - speed up features
+  - improves overall security and quality 
+  - increases overall organization performance
+=========================================================================================
+                            DevOps for NetOps
+
+ --- in the net you can automate : 
+    - upgrade
+    - monitor 
+    - config mgmt 
+    - migration 
+      ...
+==============================================IaC======================================
+
+   Code ====> Version Control ====> Code Rerview ===> integrate ====> deploy 
+                                  
+                                  - the pipline - 
+
+========================================DevOps Culture=================================
+ - set of practices and values 
+ - people and communication 
+
+==> the three ways : 
+     - flow : the whole system thinking 
+     - feedback : anlyzing feedback 
+     - continous expermentation and learning : continous improvement 
+=========================================Continous practices ============================
+ - continous integration 
+ - continous delivery and continous deplo : make developement , test and prod as identical as possible 
+
+      DevOps implementations  : - SRE : Google site reliability engineering 
+                                - NRE : Netwrk reliability newtork engineering what make it good is test.
+
+      DevNetOps : apply devops on network.
+          design ==> commit ===> notify ===> automated testing ===> automated deploy ==>continous monitoring
+

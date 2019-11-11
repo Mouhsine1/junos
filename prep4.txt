@@ -1,0 +1,29 @@
+  							<Ansible>
+
+- tool of config mgmt + config deploy 
+
+- declarative tools
+
+- idempotent 
+
+- agentless 
+
+- puppet and chef need an agent
+
+- ansible : core  module , Galaxy module 
+
+-core : junos 
+
+- Galaxy :Juniper.junos 
+
+- Varibles : inventory , group_vars , host_vars 
+
+- server : copy modules over ssh 
+
+- junos : execute locally NETCONF RPC 
+
+---
+- name: play-name
+  roles: to-import-modules
+
+---> show system commit

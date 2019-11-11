@@ -1,0 +1,71 @@
+                                                     < Netconf and XML >
+
+NETCONF : pour gerer et orchestrer les equiment resaux . from remote machine .
+          - c est un protocole pour communiquer avec les equiments reseax
+
+         
+                                             NETCONF Stack 
+                                      ________________________________
+ 
+ rpc encapsulated                  ----->      Content         <----------Config data ,  rpc input/out
+                                      _________________________________
+                                                Operations                 <---------- get-config , edit-config , commit ..
+                                      _________________________________
+                                                 Messages                     <--------- rpc , rpc reply , notifications
+                                     ____________________________________
+                                                 Transport                          <------ ssh , tls , https 
+                                      ___________________________________
+
+<rpc> : encapsulates all remote procedures call to the netconf server.
+content layer : contains config date and rpc request 
+
+ ===========================================Configure junos to accept netconf sshs connection==========================
+# default port 830
+# set netconf ssh      // that enables ssh and netconf on port 830
+
+  to start netconf session : # netconf 
+                              <rpc><get-system-uptime-information/></rpc>  
+                                ]]>]]>   <----------- termination message
+
+ to know the rpc command : 
+ > show interfaces | display xml rpc 
+ > use the xsd command 
+ > xml api explorer 
+==========================================================================================================
+programming language to use netconf : 
+  - on-box : xslt , python , slax 
+  - of-box :  python , c++ , c# , ryby , java..
+_________________________________________________
+
+- xslt was the first language to automate the xml api : used to find nodes and to use loops and when, otherwise
+ 
+
+                                           xslt-script
+                                               |
+             xml condidate config in -----> xslt engine ------->  xml candidate config out
+
+
+					     slax
+                                               |
+					     xslt
+                                               |
+             xml condidate config in -----> xslt engine ------->  xml candidate config out
+
+
+--- python script like : 
+#! /usr/bin/python 
+# simple program 
+from jnpr.junos import Device 
+dev = Device(host="10.1.1.1", user="lab", password="lab123")
+dev.open()
+print(dev.facts)
+dev.close()
+---------------------------------
+ruby gem : ruby package |
+----------------------------------
+before using any script you should enable nectonf on the junos device
+  # to be sure that netconf is enables type:  show system services 
+                                              _____________________
+  # irb interactivce ruby : irb 
+  # gem install a ruby gem or package .
+  # ruby dns.rb  //run a ruby script 

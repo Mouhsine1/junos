@@ -1,0 +1,16 @@
+                                                 Plan 
+
+
+
+
+-----------> Intro 
+
+-----------> XML + NETCONF API
+ 
+-----------> Data serialisation 
+
+-----------> Ansible 
+
+-----------> Python + PyEZ
+
+-----------> REST API

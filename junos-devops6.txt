@@ -1,0 +1,97 @@
+						< ansible intro >
+
+
+- accelerate the deploy 
+- automate the deploy 
+- idempotent operations
+
+- ansible opens netconf connection over ssh session to remote devices and carries out the tsks dectated in the playbook.
+
+$ pip install ansible 
+$ pip install junos-eznc 
+$ pip install jxmlease
+$ ansible-galaxy install Juniper.junos
+$ configure netconf ssh on the device 
+
+=====> Ansible Module library (only understand by ansible) & Ansible-galaxy  
+      - in ansible-galaxy there are module of juniper in Juniper.junos
+      - ansible library : junos_command , junos_config , junos_netconf, junos_facts, junos_rpc , junos_user
+      - ansible-galaxy : juniper_junos_command , juniper_junos_config , juniper_junos_netconf , juniper_junos_rpc 
+
+- we reference a module.py in the ansible playbook
+====================================================Playbook Example ===============================
+---
+  - name: play-name
+    hosts: group 
+    roles: 
+    - Juniper.junos  <------ import junos role to access to relevant modules 
+    connection: local    <---- local because because we execute the module localy and we interact with the netconf
+    gather_facts: no  <----- we run this playbook localy 
+
+    vars_prompt: 
+    - name: USERNAME
+      prompt: user name                                                   variable="{{value}}"
+      private : no 
+    - name: DEVICE_PASSWORD
+      prompt: device passoword
+      private: yes
+    tasks: 
+    - name: get junos facts                                             - module is like a function with parameters ! 
+      juniper.junos.facts: 
+        user: "{{USERNAME}}"
+        passwd: "{{DEVICE_PASSWORD}}"
+      register: junos_facts                      ========> the output will be registred in var called junos_facts
+    - name: print junos facts 
+      debug: 
+        msg: "{{junos_facts}}"
+==========================================================================================================================
+					Modules	to find status of  juniper device 
+=========================================================================================================================
+- juniper_junos_facts 
+- juniper_junos_rpc 
+- juniper_junos_table
+- juniper_junos_command
+- juniper_junos_table
+- juniper_junos_jsnapy
+===========================================================================================================================
+						Module to configure a device 
+===========================================================================================================================
+- juniper_junos_config
+   - to retrieve config
+   - load config
+   - rollback config
+   - commit config
+   - xml , set json format
+===========================================================================================================================
+--- 
+- name: modify configuration 
+  hosts: group1 
+  roles: 
+  - Juniper_junos                                 =============> ca se repete 
+  connection: local 
+  gather_facts: no 
+  
+  vars_prompt: 
+  - name: USERNAME
+    prompt: User name
+    private: no                                   ===========>   ca se repete
+  - name: DEVICE_PASSWORD
+    prompt: Device password 
+    private: yes 
+  tasks: 
+  - name: retrieve the commited config
+    juniper_junos_config: 
+      user: "{{USERNAME}}"
+      password: "{{DEVICE_PASSWORD}}"
+      retrieve: commited                          ==============> ca depend du modele utilisé
+      filter: interfaces  
+   register: response
+  - name: print the response 
+    debug: 
+      var: response.config_lines
+==========================================================================================================================
+							generalités
+==========================================================================================================================
+config_mode: exclusive .
+
+   

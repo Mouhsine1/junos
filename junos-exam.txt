@@ -1,0 +1,101 @@
+						< Junos- EXAM - Sam >
+
+
+
+
+- junos automation script : commit script  , operation script , event script , snmp script 
+
+
+       - commit script :  to automate the commit process , enforce custom configuration rules can perform these actions : 
+   
+                - Generate and display custom warning messages to the user
+                - Generate and log custom system log (syslog) messages
+                - change the configuration to conform to the custom configuration rules
+                - Generate a commit error and halt the commit operation
+      - op script     :  to automate operational tasks and network troubleshooting , 
+                
+                - Create custom operational mode commands
+                - Execute a series of operational mode commands
+                - Perform controlled configuration changes
+                - Monitor the overall status of a device
+   
+
+      - event script : are triggered automatically by defined event policies in response to a system event and can
+                        instruct Junos OS to take immediate action. can perform these actions : 
+
+                - Automatically diagnosing and fixing problems in the network
+                - Monitoring the overall status of a device
+                - Running automatically as part of an event policy that detects periodic error conditions
+                - Changing the configuration in response to a problem
+          
+ - on-box script : operational , commit , event
+
+ - To determine the Junos OS version, emit the <get-software-information>
+
+ - idempotency : For Ansible it means after 1 run of a playbook to set things to a desired state, further runs of the same playbook should result in 0 changes
+
+ - What are two connection types supported by PyEZ : Telnet , ssh , netconf over ssh , port console 
+
+ - Which daemon on a Junos device is responsible for terminating a REST API HTTPS request? lighthttpd
+
+ - junos process handles automation using the gRPC protocol : jsd
+
+ - data serialization method does the Junos CLI use to communicate with the Junos management proces (mgd) : XML
+
+ - the purpose for ansible roles : collection of tasks to be run on a given set of hosts
+
+ - three processes does the JET service process communicate : mgd, snmpd , rpd 
+
+ - push a configuration onto a Junos device without using NETCONF : ZTP , JET 
+
+ -  two primary processes are used by Juniper devices for on-box or off-box automation : ancpd , jsd 
+ 
+ - JET provides access to : Controle Plane 
+ 
+ - JET use MQTT message protocole to interface with the junos os
+
+ - method for determining the Junos RPC associated with the show version command : show version | display xml rpc
+
+ - print(dev.facts) : to print the current software version of the device  
+
+ - Python commit script, which object provides the post-inheritance candidate configuration
+
+ - exception is raised if the <get-interface-information> RPC takes 40 seconds : jnpr.junos.exception.RpcTimeoutError
+
+ - two format distinctions to know when using YAML : white space indentation yeees , tab indentaion noooo
+
+ - no hosts matched error : target is not defined on the : /etc/ansible/hosts on the controle machine 
+
+ - __init__.py file indicates to the Python interpreter that a directory contains Python packages or modules
+ 
+ - <rpc><close-session></close-session></rpc> command : to end the current session
+
+ - to reset all junos services : junos_zeroize , junos_install_config : to new config
+
+ - ephemeral db : to reduce the time of commit 
+ 
+ - RESTful API on a Junos device, you are able to retrieve configuration information in which three formt : json , xml, text
+
+ - Python and snmp script are runnig by user : nobody 
+
+ - to use a python file commands : set system scripts language python , set system scripts op file inventory.py
+
+ -  statements regarding NETCONF are true :  is a standardized protocol and works with multiple ..NETCONF operations are                                               processed by the mgd process
+ - utomation tool provides closed-loop automation and event-driven infrastructure : salt
+
+- yaml : YAML is a Unicode-based serialization language designed around common data types
+
+- in yaml we say sequence : not a set  or list 
+
+- Python variables once they are created : A global variable can only be used by functions that are defined later
+
+- xml : XML is used to issue Junos operational commands , XML is used to view or modify a Junos configuration
+
+- Platform qui supporte REST API  : SRX series and MX series 
+
+- Process handles automation requests involving the XML API, YANG, the REST API, and SNMP functions : mgd 
+
+- Restrict access to the REST API on a Junos device : Enable a maximum number of connections ,  Restrict access by the 							source IP address 
+
+- to upgrade your Junos devices to the current JTAC supported release : junos_package , juniper_junos_sw
+
